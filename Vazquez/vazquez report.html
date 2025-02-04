@@ -39,19 +39,20 @@
             }
         }
 
-        // Use the unique key for vazquezreport
-        const feedbackEntries = JSON.parse(localStorage.getItem('vazquezFeedbackEntries')) || [];
-        const feedbackTable = document.getElementById('feedback-entries');
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackEntries = JSON.parse(localStorage.getItem('vazquezFeedbackEntries')) || [];
+            const feedbackTable = document.getElementById('feedback-entries');
 
-        feedbackEntries.forEach(feedback => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${feedback.dateOfService}</td>
-                <td>${feedback.well}</td>
-                <td>${feedback.better}</td>
-                <td>${feedback.comments}</td>
-            `;
-            feedbackTable.appendChild(row);
+            feedbackEntries.forEach(feedback => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${feedback.dateOfService}</td>
+                    <td>${feedback.well}</td>
+                    <td>${feedback.better}</td>
+                    <td>${feedback.comments}</td>
+                `;
+                feedbackTable.appendChild(row);
+            });
         });
     </script>
 </body>
