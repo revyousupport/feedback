@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .survey-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .survey-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+        .survey-list a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .password-container, .survey-list {
+            display: none;
+        }
+        .password-container.active, .survey-list.active {
+            display: block;
+        }
+        .password-container input {
+            padding: 10px;
+            margin-right: 10px;
+        }
+        .password-container button {
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Owner Dashboard</h1>
+        <div class="password-container active">
+            <input type="password" id="password" placeholder="Enter password">
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+        <ul class="survey-list">
+            <li><a href="Sample/sample form.html" target="_blank">Scotch One</a></li>
+            <li><a href="Vazquez/vazquez form.html" target="_blank">Vazquez Auto and Diesel Repair</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const inputPassword = document.getElementById('password').value;
+            const correctPassword = 'mouse'; // Your chosen password
+            if (inputPassword === correctPassword) {
+                document.querySelector('.password-container').classList.remove('active');
+                document.querySelector('.survey-list').classList.add('active');
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
