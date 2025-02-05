@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample2</title>
+    <link rel="stylesheet" type="text/css" href="sample2 style.css">
+</head>
+<body>
+    <div class="password-container" id="password-container">
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+    <div class="report-container" id="report-container" style="display: none;">
+        <h2>sample2 Report</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date of Service</th>
+                    <th>What did we do well?</th>
+                    <th>What could we have done better?</th>
+                    <th>Additional Comments</th>
+                </tr>
+            </thead>
+            <tbody id="feedback-entries">
+                <!-- Feedback entries will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === 'sample2') {
+                document.getElementById('password-container').style.display = 'none';
+                document.getElementById('report-container').style.display = 'block';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackEntries = JSON.parse(localStorage.getItem('sample2FeedbackEntries')) || [];
+            const feedbackTable = document.getElementById('feedback-entries');
+
+            feedbackEntries.forEach(feedback => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${feedback.dateOfService}</td>
+                    <td>${feedback.well}</td>
+                    <td>${feedback.better}</td>
+                    <td>${feedback.comments}</td>
+                `;
+                feedbackTable.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

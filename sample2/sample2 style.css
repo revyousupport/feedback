@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container, .survey-container, .feedback-container, .report-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px; /* Increased to 800px for report-container */
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1, h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.survey-option {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-radius: 25px;
+    padding: 10px 8px;
+    margin: 10px 0;
+    width: 45%;
+    justify-content: flex-start;
+    border: 1px solid #d3d3d3;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.survey-option:hover, .submit-button:hover, .password-container button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.survey-option.selected {
+    background-color: #d3e0ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stars {
+    display: flex;
+    margin-right: 10px;
+}
+
+.star {
+    font-size: 24px;
+    color: #FFD700;
+}
+
+.star.gray {
+    color: #d3d3d3;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 10px;
+    color: #555;
+    white-space: nowrap;
+}
+
+.submit-button, .password-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px; /* Adjusted padding */
+    border: none;
+    border-radius: 5px; /* Adjusted border-radius */
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-align: center; /* Ensures text is centered */
+    width: auto; /* Ensures button width is automatic */
+}
+
+@media (max-width: 600px) {
+    .container, .survey-container, .feedback-container, .report-container {
+        padding: 15px;
+        max-width: 90%;
+        box-shadow: none;
+    }
+    .survey-option {
+        width: 85%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    .submit-button, .password-container button {
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+.feedback-container textarea, .feedback-container input, .password-container input {
+    width: 50%; /* Adjust the width as needed */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px; /* Adjusted border-radius */
+    border: 1px solid #d3d3d3;
+}
+
+.feedback-container input::placeholder, .password-container input::placeholder {
+    color: #aaa;
+}
+
+.feedback-container label, .password-container button {
+    text-align: left;
+    width: 50%;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.password-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f8f8;
+}
+
+td {
+    background-color: #fafafa;
+}
+
+.survey-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.survey-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+.survey-list a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.survey-list a:hover {
+    text-decoration: underline;
+}
+
+.password-container button {
+    text-align: center; /* Ensures text is centered */
+    width: auto; /* Ensures button width is automatic */
+}

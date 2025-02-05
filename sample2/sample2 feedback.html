@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" type="text/css" href="sample2 style.css">
+</head>
+<body>
+    <div class="feedback-container">
+        <h2>Your Feedback for sample2</h2>
+        <label for="date-of-service">Date of Service</label>
+        <input type="date" id="date-of-service">
+        <label for="well">What did we do well?</label>
+        <textarea id="well" rows="3"></textarea>
+        <label for="better">What could we have done better?</label>
+        <textarea id="better" rows="3"></textarea>
+        <label for="comments">Anything else we should know?</label>
+        <textarea id="comments" rows="3"></textarea>
+        <button class="submit-button" onclick="submitForm()">Submit</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            const dateOfService = document.getElementById('date-of-service').value;
+            const well = document.getElementById('well').value;
+            const better = document.getElementById('better').value;
+            const comments = document.getElementById('comments').value;
+
+            const feedbackData = {
+                dateOfService,
+                well,
+                better,
+                comments
+            };
+
+            // Use a unique key for sample2report
+            let feedbackEntries = JSON.parse(localStorage.getItem('sample2FeedbackEntries')) || [];
+            feedbackEntries.push(feedbackData);
+            localStorage.setItem('sample2FeedbackEntries', JSON.stringify(feedbackEntries));
+
+            window.location.href = '../thankyou.html';
+        }
+    </script>
+</body>
+</html>

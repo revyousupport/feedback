@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Options</title>
+    <link rel="stylesheet" type="text/css" href="sample2 style.css">
+</head>
+<body>
+    <div class="survey-container">
+        <h2>How Was Your Experience at sample2?</h2>
+        <div class="survey-option" onclick="selectOption(this, 'excellent')">
+            <div class="stars">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+            </div>
+            <div class="label">Excellent</div>
+        </div>
+        <div class="survey-option" onclick="selectOption(this, 'good')">
+            <div class="stars">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+            </div>
+            <div class="label">Good</div>
+        </div>
+        <div class="survey-option" onclick="selectOption(this, 'average')">
+            <div class="stars">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+            </div>
+            <div class="label">Average</div>
+        </div>
+        <div class="survey-option" onclick="selectOption(this, 'below_average')">
+            <div class="stars">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+            </div>
+            <div class="label">Below Average</div>
+        </div>
+        <div class="survey-option" onclick="selectOption(this, 'poor')">
+            <div class="stars">
+                <span class="star">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+                <span class="star gray">&#9733;</span>
+            </div>
+            <div class="label">Poor</div>
+        </div>
+        <button class="submit-button">Submit</button>
+    </div>
+    <script>
+        let selectedOption = null;
+
+        function selectOption(element, option) {
+            // Remove the selected class from all options
+            const options = document.querySelectorAll('.survey-option');
+            options.forEach(opt => {
+                opt.classList.remove('selected');
+            });
+
+            // Add the selected class to the clicked option
+            element.classList.add('selected');
+            selectedOption = option;
+        }
+
+        document.querySelector('.submit-button').addEventListener('click', function() {
+            if (selectedOption === 'excellent' || selectedOption === 'good') {
+                window.location.href = 'https://www.youtube.com/';
+            } else if (selectedOption !== null) {
+                window.location.href = 'sample2 feedback.html';
+            } else {
+                alert('Please select an option before submitting.');
+            }
+        });
+    </script>
+</body>
+</html>
